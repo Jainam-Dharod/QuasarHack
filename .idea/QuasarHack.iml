@@ -4,12 +4,11 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/Frontend/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/Frontend/build" />
       <excludeFolder url="file://$MODULE_DIR$/Frontend/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/Frontend/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
-    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>

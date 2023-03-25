@@ -28,13 +28,13 @@ List<PageFile> pages = [
     "Spicy foods - Foods that contain capsaicin, such as cayenne pepper, jalapenos, and horseradish, can help clear sinuses and alleviate congestion. Citrus fruits: Citrus fruits, such as oranges, lemons, and grapefruits, are rich in vitamin C, which can help boost the immune system and reduce inflammation in the sinuses. Warm liquid - Drinking warm liquids, such as herbal tea, chicken soup, or hot water with lemon and honey, can help soothe irritated sinuses and relieve congestion. Garlic and onions - Both garlic and onions contain compounds that can help fight off infections and reduce inflammation in the sinuses. Omega-3 fatty acids - Foods rich in omega-3 fatty acids, such as salmon, flaxseed, and walnuts, can help reduce inflammation in the body, including the sinuses. Probiotic-rich foods - Foods that are rich in probiotics, such as yogurt, kefir, and fermented vegetables, can help boost the immune system and reduce inflammation in the sinuses.",
   ),
   PageFile(2,
-    name: 'Lifestyle & Habits',
+    name: 'Lifestyle & \nHabits',
     iconImage: 'assets/lifestyle.png',
     description:
     "Quit Smoking - Smoking makes it easier to get an infection. Quitting smoking can help lower this risk. So can avoiding second-hand smoke and air pollution. Exercise Regularly - Exercise releases chemicals in the body that block pain signals to the brain. Talk with your health care provider about exercise and choose activities you enjoy. They might include walking, swimming or cycling. Get Enough Sleep - Wake up and go to bed at the same time every day — even on weekends. Relax before you go to bed. If you don't fall asleep within 15 minutes, get up and read or do something soothing until you're drowsy. Avoid medicines that contains caffeine or other stimulants that can affect sleep. This can include some headache medicines. Quit Alcohol - While moderate alcohol use may offer some health benefits, heavy drinking, including binge drinking — has no health benefits.",
   ),
   PageFile(3,
-      name: 'Immediate Action',
+      name: 'Immediate \nAction',
       iconImage: 'assets/action.png',
       description:
       "A pulmonologist is a doctor who diagnoses and treats diseases of the respiratory system -- the lungs and other organs that help you breathe. Pulmonologists may use a variety of diagnostic tools, including chest X-rays, CT scans, pulmonary function tests, and bronchoscopy, to diagnose and treat respiratory conditions. They may also prescribe medications, such as inhalers or antibiotics, and recommend lifestyle changes, such as quitting smoking or losing weight, to manage or prevent respiratory problems. In some cases, pulmonologists may also perform surgical procedures, such as lung biopsies or lung transplant surgeries. They are known to treat diseases like Asthma, Chronic, Pneumonia, Tuberculosis, Pulmonary fibrosis, Lung cancer, Sleep apnea, and Occupational lung diseases - conditions caused by exposure to certain dust, chemicals, or other substances in the workplace. ",
