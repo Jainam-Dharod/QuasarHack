@@ -5,7 +5,7 @@ import '/Pages/mainScreen.dart';
 import 'Pages/bodyPage.dart';
 import 'Pages/firstPage.dart';
 import 'Pages/SOS.dart';
-import 'Pages/SpeechToText.dart';
+import 'Pages/sttPage.dart';
 
 
 void main() {

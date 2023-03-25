@@ -74,56 +74,146 @@ class _sttPageState extends State<sttPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Speech to Text Example'),
-      ),
-      body: Column(children: [
-        Container(
-          color: Theme.of(context).selectedRowColor,
-          child: Center(
-            child: Text(
-              lastWords,
-              textAlign: TextAlign.center,
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+
+
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: IconButton(
+                      color: Colors.black,
+                      icon: Icon(Icons.arrow_back_ios_rounded),
+                      iconSize: 35,
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.07,
+              ),
+
+              speech.isListening? Container(
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                height: height * 0.15,
+                width: width * 0.85,
+
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage('https://icons8.com/vue-static/landings/animated-icons/icons/sound/sound_200.gif'),
+                    fit: BoxFit.fill,
+                ),
+                ),
+              ):Container(
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+                height: height * 0.15,
+                width: width * 0.85,
+
+                decoration: BoxDecoration(
+                  color: Colors.teal,
+                  borderRadius: BorderRadius.all(Radius.circular(10))
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Center(
+                    child: Text(
+
+                      'Please click on the mic button to start recording',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
+            height: height * 0.2,
+            width: width * 0.9,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+
+            ),
+
+            child: Center(
+              child: Text(
+                lastWords,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 22
+                ),
+              ),
             ),
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SpeechControlWidget(_hasSpeech, speech.isListening,
-                startListening, stopListening, cancelListening),
-            FloatingActionButton(
-              onPressed: () async{
-                const url = 'https://e1dd-14-140-90-130.in.ngrok.io/prediction';
-                final response = await http.post(url, body: json.encode({'text' : lastWords}));
-                Map<String, dynamic> temp = json.decode(response.body);
-                print(temp["disease"]);
-                Node heartAttackNode = new Node("Current Prediction - Heart Attack. This is a critical situation. Please call the ambulance immediately using the SOS button. Have the person sit down, rest, and try to keep calm. Loosen any tight clothing. Ask if the person takes any chest pain medicine, such as nitroglycerin for a known heart condition, and help them take it.", true, iconImage:"assets/temp4.png");
-                Node coldNode = Node("Current Prediction - Cold", true,pageList: [5,4,2,1], iconImage:"assets/temp7.png");
-                Node pneumoNode = Node("Current Prediction - Pneumonia", true, pageList: [3,2], iconImage:"assets/temp5.png");
-                if(temp["disease"]=="Heart attack"){
-                  Results.rootNode = heartAttackNode;
-                }
-                else if(temp["disease"]=="Common Cold"){
-                  Results.rootNode = coldNode;
+              SizedBox(
+                height: height * 0.03,
+              ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SpeechControlWidget(_hasSpeech, speech.isListening,
+                  startListening, stopListening, cancelListening),
 
-                }
-                else if(temp["disease"]=="Pneumonia"){
-                  Results.rootNode = pneumoNode;
-                }
-                else{
-                  Results.rootNode = Node("Current Prediction - Mild Discomfort", true, iconImage:"assets/temp1.png");
-                }
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Results()));
+              Material(
+                elevation: 10,
+                borderRadius: BorderRadius.all(Radius.circular(100)),
+                child: Container(
+                  height: height * 0.12,
+                  width: width * 0.25,
+                  decoration: BoxDecoration(
+                      color: Color(0xffEE1756),
+                      borderRadius: BorderRadius.circular(100)
 
-                }, child: Icon(Icons.search),)
-          ],
-        ),
-      ]),
+
+                  ),
+                  child: IconButton(
+
+                    onPressed: () async{
+                      const url = 'https://e1dd-14-140-90-130.in.ngrok.io/prediction';
+                      final response = await http.post(url, body: json.encode({'text' : lastWords}));
+                      Map<String, dynamic> temp = json.decode(response.body);
+                      print(temp["disease"]);
+                      Node heartAttackNode = new Node("Current Prediction - Heart Attack. This is a critical situation. Please call the ambulance immediately using the SOS button. Have the person sit down, rest, and try to keep calm. Loosen any tight clothing. Ask if the person takes any chest pain medicine, such as nitroglycerin for a known heart condition, and help them take it.", true, iconImage:"assets/temp4.png");
+                      Node coldNode = Node("Current Prediction - Cold", true,pageList: [5,4,2,1], iconImage:"assets/temp7.png");
+                      Node pneumoNode = Node("Current Prediction - Pneumonia", true, pageList: [3,2], iconImage:"assets/temp5.png");
+                      if(temp["disease"]=="Heart attack"){
+                        Results.rootNode = heartAttackNode;
+                      }
+                      else if(temp["disease"]=="Common Cold"){
+                        Results.rootNode = coldNode;
+
+                      }
+                      else if(temp["disease"]=="Pneumonia"){
+                        Results.rootNode = pneumoNode;
+                      }
+                      else{
+                        Results.rootNode = Node("Current Prediction - Mild Discomfort", true, iconImage:"assets/temp1.png");
+                      }
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Results()));
+
+                      },
+                    icon: Icon(Icons.search, size: 50),),
+                ),
+              )
+            ],
+          ),
+        ]),
+      ),
     );
   }
 
@@ -339,9 +429,25 @@ class SpeechControlWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: !hasSpeech || isListening ? null : startListening,
-      child: Icon(Icons.mic),
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    return Material(
+      elevation: 10,
+      borderRadius: BorderRadius.all(Radius.circular(100)),
+      child: Container(
+        height: height * 0.12,
+        width: width * 0.25,
+        decoration: BoxDecoration(
+            color: Color(0xffEE1756),
+            borderRadius: BorderRadius.circular(100)
+
+
+        ),
+        child: IconButton(
+          onPressed: !hasSpeech || isListening ? null : startListening,
+          icon: Icon(Icons.mic, size: 45),
+        ),
+      ),
     );
   }
 }
