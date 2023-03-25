@@ -22,20 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6552ddce-bf58-48f0-9f9d-926db831ae1a" name="Default Changelist" comment="frontend added">
-      <change beforePath="$PROJECT_DIR$/.idea/QuasarHack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/QuasarHack.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/lib/Pages/results.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/lib/Pages/results.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/lib/Pages/sttPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/lib/Pages/sttPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/pubspec.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="6552ddce-bf58-48f0-9f9d-926db831ae1a" name="Default Changelist" comment="frontend added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,18 +42,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/StudioProjects/QuasarHack&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "C:/StudioProjects/newww/QuasarHack",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Jainam Dharod\AndroidStudioProjects\QuasarHack\Frontend\assets" />
