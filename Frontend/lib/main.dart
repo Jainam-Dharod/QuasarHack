@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quaser_diagnostica/Pages/sttPage.dart';
 import '/Pages/mainScreen.dart';
 import 'Pages/bodyPage.dart';
 import 'Pages/firstPage.dart';
 import 'Pages/SOS.dart';
 import 'Pages/SpeechToText.dart';
-
 
 
 void main() {

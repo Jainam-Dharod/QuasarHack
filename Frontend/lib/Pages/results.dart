@@ -20,6 +20,12 @@ class _ResultsState extends State<Results> {
 
   @override
   void initState() {
+    if(currentNode.endNodeStatus && currentNode.getPageList() != []){
+      List<int> p = currentNode.getPageList();
+      for(var i in p){
+        pageL.add(pages[i]);
+      }
+    }
     imageLink = currentNode.getIconImage();
     comment = currentNode.getComment();
     if(comment.contains('-')) {
@@ -107,7 +113,8 @@ class _ResultsState extends State<Results> {
                                   pageL.add(pages[i]);
                                 }
                               }
-                            });
+                            }
+                            );
                           },
                           child: Text(
                               l[0],
@@ -134,6 +141,12 @@ class _ResultsState extends State<Results> {
                                 comment2 = comment;
                               }
                               l = currentNode.getResponses();
+                              if(currentNode.endNodeStatus && currentNode.getPageList() != []){
+                                List<int> p = currentNode.getPageList();
+                                for(var i in p){
+                                  pageL.add(pages[i]);
+                                }
+                              }
                             });
                           },
                           child: Text(
