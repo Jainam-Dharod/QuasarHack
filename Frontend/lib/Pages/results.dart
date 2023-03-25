@@ -43,17 +43,18 @@ class _ResultsState extends State<Results> {
 
   @override
   Widget build(BuildContext context) {
-    return (!currentNode.endNodeStatus)?SafeArea(
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    if ((!currentNode.endNodeStatus)) {
+      return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Stack(
+        body: Stack(
             children: [
               Column(
                 children: [
                   Container(
-                    height: 500,
-                    width: 400,
+                    height: height * 0.6,
+                    //width: 400,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(imageLink),
@@ -61,14 +62,17 @@ class _ResultsState extends State<Results> {
                         )),
                   ),
                   Container(
-                    margin: const EdgeInsets.all(40.0),
+                    height: height * 0.06,
+                    margin: const EdgeInsets.all(32.0),
                     child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            comment1,
-                            style: const TextStyle(
-                              fontSize: 16, color: Color(0xffEE1756), fontWeight: FontWeight.bold
+                          Flexible(
+                            child: Text(
+                              comment1,
+                              style: const TextStyle(
+                                fontSize: 16, color: Color(0xffEE1756), fontWeight: FontWeight.bold
+                              ),
                             ),
                           ),
                           Flexible(
@@ -81,16 +85,14 @@ class _ResultsState extends State<Results> {
                           )
                         ])
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                        height: 150,
-                        width: 150,
+                        height: height * 0.19,
+                        width: width * 0.38,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(primary: Color(0xffEE1756)),
                           onPressed: () {
@@ -123,8 +125,8 @@ class _ResultsState extends State<Results> {
                         ),
                       ),
                       SizedBox(
-                        height: 150,
-                        width: 150,
+                        height: height * 0.19,
+                        width: width * 0.38,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(primary: Color(0xffEE1756)),
                           onPressed: () {
@@ -166,19 +168,19 @@ class _ResultsState extends State<Results> {
                   icon: const Icon(Icons.arrow_back_ios_new))
             ],
           ),
-        ),
+
       ),
-    ):SafeArea(
+    );
+    } else {
+      return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Stack(
+        body: Stack(
             children: [
               Column(
                 children: [
                   Container(
-                    height: 500,
-                    width: 400,
+                    height: height * 0.6,
+
                     decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(imageLink),
@@ -186,7 +188,9 @@ class _ResultsState extends State<Results> {
                         )),
                   ),
                   Container(
-                      margin: const EdgeInsets.all(40.0),
+
+                      height: height * 0.06,
+                      margin: const EdgeInsets.fromLTRB(40.0,40.0,40.0,20.0),
                       child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -207,14 +211,14 @@ class _ResultsState extends State<Results> {
                           ])
                   ),
                   //final pages
-                  (pageL.length>0)?Container(
-                    height: 240,
+                  if (pageL.length>0) Container(
+                    height: height * 0.2,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 35.0),
                       child: Swiper(
                         itemCount: pageL.length,
                         fade: 0.3,
-                        itemWidth: 300,
+                        itemWidth: width * 0.8,
                         layout: SwiperLayout.STACK,
                         pagination: SwiperPagination(
                             builder: DotSwiperPaginationBuilder(
@@ -244,16 +248,12 @@ class _ResultsState extends State<Results> {
                             },
                             child: Stack(
                               children: <Widget>[
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    SizedBox(
-                                      height: 10,
-                                    ),
+
 
                                     Container(
-                                      width: 300,
+
+                                      width: width * 0.8,
+                                      height: height * 0.2,
                                       child: Card(
 
                                         shape: RoundedRectangleBorder(
@@ -261,56 +261,58 @@ class _ResultsState extends State<Results> {
                                         elevation: 8,
                                         color: Color(0xFFEE1756),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(32.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                          padding: const EdgeInsets.fromLTRB(24.0, 12.0, 12.0, 12.0),
+                                          child:
 
-                                          children: <Widget>[
-                                            const SizedBox(
-                                              height: 35,
+
+                                            Row(
+                                              children: [
+                                                Expanded(
+                                                  flex: 1,
+                                                  child: Text(
+                                                    pageL[index].name.toString(),
+                                                    style: const TextStyle(
+                                                        fontSize: 20,
+                                                        fontFamily: 'Avenir',
+                                                        color: Color(0xffFFFFFF),
+                                                        fontWeight: FontWeight.w600),
+                                                    textAlign: TextAlign.left,
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  flex: 1,
+                                                  child: Material(
+                                                    elevation: 20,
+                                                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                                                    child: Container(
+                                                        child: Image.asset(
+
+                                                          pageL[index].iconImage.toString(),
+
+                                                          height: height* 0.4,
+                                                          width: width * 0.4,
+                                                        )
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
 
-                                            Text(
-                                              pageL[index].name.toString(),
-                                              style: const TextStyle(
-                                                  fontSize: 20,
-                                                  fontFamily: 'Avenir',
-                                                  color: Color(0xffFFFFFF),
-                                                  fontWeight: FontWeight.w600),
-                                              textAlign: TextAlign.left,
-                                            ),
 
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
 
-                                          ],
-                                        ),
+
                                       ),
                                     ),
                                   )
                                 ],
                               ),
-                              Positioned(
-                                right: 20,
-                                top: 2,
-                                child: Hero(
-                                    tag: pageL[index].position,
-                                    child: Image.asset(
-                                      pageL[index].iconImage.toString(),
-                                      height: 130,
-                                      width: 130,
-                                    )
-                                ),
-                              )
-                            ],
-                          ),
+
+
                         );
                       },
                     ),
                   ),
-                ):Container()
+                ) else Container()
 
               ]),
               IconButton(
@@ -320,8 +322,9 @@ class _ResultsState extends State<Results> {
                   icon: const Icon(Icons.arrow_back_ios_new))
             ],
           )
-      ),
+
     ));
+    }
   }
 
 
