@@ -103,19 +103,19 @@ class _sttPageState extends State<sttPage> {
               ),
 
               speech.isListening? Container(
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
-                height: height * 0.15,
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
+                height: height * 0.16,
                 width: width * 0.85,
 
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage('https://icons8.com/vue-static/landings/animated-icons/icons/sound/sound_200.gif'),
+                    image: NetworkImage('https://images.squarespace-cdn.com/content/v1/5d748f0648166d6ab3e5405f/1567968294883-V040N24BP2IYJ6G1VOEF/img578.gif '),
                     fit: BoxFit.fill,
                 ),
                 ),
               ):Container(
                 margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
-                height: height * 0.15,
+                height: height * 0.16,
                 width: width * 0.85,
 
                 decoration: BoxDecoration(
@@ -185,7 +185,8 @@ class _sttPageState extends State<sttPage> {
                       final response = await http.post(url, body: json.encode({'text' : lastWords}));
                       Map<String, dynamic> temp = json.decode(response.body);
                       print(temp["disease"]);
-                      Node heartAttackNode = new Node("Current Prediction - Heart Attack. This is a critical situation. Please call the ambulance immediately using the SOS button. Have the person sit down, rest, and try to keep calm. Loosen any tight clothing. Ask if the person takes any chest pain medicine, such as nitroglycerin for a known heart condition, and help them take it.", true, iconImage:"assets/temp4.png");
+
+                      Node heartAttackNode = new Node("Current Prediction - Heart Attack. Please call the ambulance. Have the person sit down and loosen any tight clothing. Ask if the person takes any chest pain medicine, such as nitroglycerin for a known heart condition, and help them take it.", true, iconImage:"assets/temp4.png");
                       Node coldNode = Node("Current Prediction - Cold", true,pageList: [5,4,2,1], iconImage:"assets/temp7.png");
                       Node pneumoNode = Node("Current Prediction - Pneumonia", true, pageList: [3,2], iconImage:"assets/temp5.png");
                       if(temp["disease"]=="Heart attack"){
@@ -199,7 +200,8 @@ class _sttPageState extends State<sttPage> {
                         Results.rootNode = pneumoNode;
                       }
                       else{
-                        Results.rootNode = Node("Current Prediction - Mild Discomfort", true, iconImage:"assets/temp1.png");
+                        Results.rootNode = Node("Condition Critical Call SOS", true, iconImage:"assets/emergencynode.png");
+                        ;
                       }
                       Navigator.push(
                           context,
@@ -263,7 +265,7 @@ void resultListener(SpeechRecognitionResult result) {
   _logEvent(
       'Result listener final: ${result.finalResult}, words: ${result.recognizedWords}');
   setState(() {
-    lastWords = '${result.recognizedWords} - ${result.finalResult}';
+    lastWords = '${result.recognizedWords} ';
   });
 }
 

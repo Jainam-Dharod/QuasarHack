@@ -33,6 +33,7 @@ class _InjuryPageState extends State<InjuryPage> {
             children: [
               Column(
                 children: [
+
                   Container(
                     height: height * 0.6,
                     decoration: BoxDecoration(

@@ -27,6 +27,7 @@ class _DetailsViewState extends State<DetailsView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
                 const SizedBox(
                   height: 250,
                 ),

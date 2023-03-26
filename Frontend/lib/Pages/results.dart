@@ -52,6 +52,7 @@ class _ResultsState extends State<Results> {
             children: [
               Column(
                 children: [
+
                   Container(
                     height: height * 0.6,
                     //width: 400,
@@ -63,18 +64,21 @@ class _ResultsState extends State<Results> {
                   ),
                   Container(
                     height: height * 0.06,
+                    width: width*0.9,
+                
                     margin: const EdgeInsets.all(32.0),
                     child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Flexible(
+                          (comment1 != "") ? Flexible(
                             child: Text(
                               comment1,
+
                               style: const TextStyle(
-                                fontSize: 16, color: Color(0xffEE1756), fontWeight: FontWeight.bold
+                                  fontSize: 16, color: Color(0xffEE1756), fontWeight: FontWeight.bold
                               ),
                             ),
-                          ),
+                          ): Container() ,
                           Flexible(
                             child: Text(
                               comment2,
@@ -176,6 +180,7 @@ class _ResultsState extends State<Results> {
       child: Scaffold(
         body: Stack(
             children: [
+
               Column(
                 children: [
                   Container(
@@ -187,116 +192,156 @@ class _ResultsState extends State<Results> {
                           fit: BoxFit.fill,
                         )),
                   ),
-                  Container(
-
-                      height: height * 0.06,
-                      margin: const EdgeInsets.fromLTRB(40.0,40.0,40.0,20.0),
-                      child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              comment1,
-                              style: const TextStyle(
-                                  fontSize: 16, color: Color(0xffEE1756), fontWeight: FontWeight.bold
-                              ),
-                            ),
-                            Flexible(
-                              child: Text(
-                                comment2,
+                  if(pageL.length>0) Container(
+                        height: height * 0.06,
+                        margin: const EdgeInsets.fromLTRB(40.0,40.0,40.0,20.0),
+                        child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                comment1,
                                 style: const TextStyle(
-                                  fontSize: 16, color: Colors.black,
+                                    fontSize: 16, color: Color(0xffEE1756), fontWeight: FontWeight.bold
                                 ),
                               ),
+                              Flexible(
+                                child: Text(
+                                  comment2,
+                                  style: const TextStyle(
+                                    fontSize: 16, color: Colors.black,
+                                  ),
+                                ),
+                              )
+                            ])
+                    ) else Column(
+                    children: [
+                      Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: height * 0.09,
+                              width: width * 0.85,
+                              margin: const EdgeInsets.fromLTRB(30.0,40.0,20.0,0.0),
+                              child: Text(
+                                'This is an Emergency! You should follow these steps: ',
+                                style: const TextStyle(
+                                    fontSize: 22, color: Color(0xffEE1756), fontWeight: FontWeight.bold
+                                ),
+                              ),
+
                             )
-                          ])
+                          ]
+                      ),
+                      Row(
+
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: height * 0.12,
+                            width: width * 0.85,
+                            margin: const EdgeInsets.fromLTRB(30.0,0.0,20.0,20.0),
+                            child: Text(
+                              comment2,
+                              style: const TextStyle(
+                                fontSize: 16, color: Colors.black,
+                              ),
+                            ),
+
+                          )
+
+                        ],
+                      ),
+                    ],
                   ),
-                  //final pages
-                  if (pageL.length>0) Container(
-                    height: height * 0.2,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 35.0),
-                      child: Swiper(
-                        itemCount: pageL.length,
-                        fade: 0.3,
-                        itemWidth: width * 0.8,
-                        layout: SwiperLayout.STACK,
-                        pagination: SwiperPagination(
-                            builder: DotSwiperPaginationBuilder(
-                                activeSize: 7,
-                                activeColor: Colors.yellow.shade300,
-                                space: 5)),
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    opaque: false,
-                                    pageBuilder: (context, a, b) => DetailsView(
-                                      pageFile: pageL[index],
-                                    ),
-                                    transitionsBuilder: (BuildContext context,
-                                        Animation<double> animation,
-                                        Animation<double> secondaryAnimation,
-                                        Widget child) {
-                                      return FadeTransition(
-                                        opacity: animation,
-                                        child: child,
-                                      );
-                                    },
-                                  ));
-                            },
-                            child: Stack(
-                              children: <Widget>[
+                    //final pages
+                    if(pageL.length>0)Container(
+                      height: height * 0.2,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 35.0),
+                        child: Swiper(
+                          itemCount: pageL.length,
+                          fade: 0.3,
+                          itemWidth: width * 0.8,
+                          layout: SwiperLayout.STACK,
+                          pagination: SwiperPagination(
+                              builder: DotSwiperPaginationBuilder(
+                                  activeSize: 7,
+                                  activeColor: Colors.yellow.shade300,
+                                  space: 5)),
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      opaque: false,
+                                      pageBuilder: (context, a, b) => DetailsView(
+                                        pageFile: pageL[index],
+                                      ),
+                                      transitionsBuilder: (BuildContext context,
+                                          Animation<double> animation,
+                                          Animation<double> secondaryAnimation,
+                                          Widget child) {
+                                        return FadeTransition(
+                                          opacity: animation,
+                                          child: child,
+                                        );
+                                      },
+                                    ));
+                              },
+                              child: Stack(
+                                children: <Widget>[
 
 
-                                    Container(
+                                  Container(
+                                    margin: EdgeInsets.only(bottom: 20),
 
-                                      width: width * 0.8,
-                                      height: height * 0.2,
-                                      child: Card(
+                                    width: width * 0.8,
+                                    height: height * 0.2,
+                                    child: Card(
 
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(32)),
-                                        elevation: 8,
-                                        color: Color(0xFFEE1756),
-                                        child: Padding(
-                                          padding: const EdgeInsets.fromLTRB(24.0, 12.0, 12.0, 12.0),
-                                          child:
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(32)),
+                                      elevation: 8,
+                                      color: Color(0xFFEE1756),
+                                      child: Padding(
+                                        padding: const EdgeInsets.fromLTRB(24.0, 12.0, 12.0, 12.0),
+
+                                        child:
 
 
-                                            Row(
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    pageL[index].name.toString(),
-                                                    style: const TextStyle(
-                                                        fontSize: 20,
-                                                        fontFamily: 'Avenir',
-                                                        color: Color(0xffFFFFFF),
-                                                        fontWeight: FontWeight.w600),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Material(
-                                                    elevation: 20,
-                                                    borderRadius: BorderRadius.all(Radius.circular(100)),
-                                                    child: Container(
-                                                        child: Image.asset(
-
-                                                          pageL[index].iconImage.toString(),
-
-                                                          height: height* 0.4,
-                                                          width: width * 0.4,
-                                                        )
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              flex: 1,
+                                              child: Text(
+                                                pageL[index].name.toString(),
+                                                style: const TextStyle(
+                                                    fontSize: 20,
+                                                    fontFamily: 'Avenir',
+                                                    color: Color(0xffFFFFFF),
+                                                    fontWeight: FontWeight.w600),
+                                                textAlign: TextAlign.left,
+                                              ),
                                             ),
+                                            Expanded(
+                                              flex: 1,
+                                              child: Material(
+                                                elevation: 20,
+                                                borderRadius: BorderRadius.all(Radius.circular(100)),
+                                                child: Container(
+                                                    child: Image.asset(
+
+                                                      pageL[index].iconImage.toString(),
+
+                                                      height: height* 0.4,
+                                                      width: width * 0.4,
+                                                    )
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
 
 
 
@@ -308,11 +353,11 @@ class _ResultsState extends State<Results> {
                               ),
 
 
-                        );
-                      },
-                    ),
-                  ),
-                ) else Container()
+                            );
+                          },
+                        ),
+                      ),
+                    )else Container()
 
               ]),
               IconButton(

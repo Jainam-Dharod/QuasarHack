@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:quaser_diagnostica/Pages/sttPage.dart';
-import '/Pages/mainScreen.dart';
-import 'Pages/bodyPage.dart';
-import 'Pages/firstPage.dart';
-import 'Pages/SOS.dart';
-import 'Pages/sttPage.dart';
+import 'package:quaser_diagnostica/Pages/MainScreen.dart';
+import 'package:quaser_diagnostica/Pages/onboarding.dart';
+
+
 
 
 void main() {
@@ -31,6 +29,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
-        home: sttPage());
+        home: FlowPager());
   }
 }
